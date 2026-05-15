@@ -370,6 +370,153 @@ let lastName = fullName.slice(fullName.indexOf(" ") + 1);
 console.log(firstName);
 console.log(lastName); */
 
-const email = "Bro@gmail.com";
+/* const email = "Bro@gmail.com";
 
-let userName = email.slice();
+let userName = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@")+1);
+
+console.log(userName);
+console.log(extension); */
+
+// 13. Method chaining = Calling one method after another
+//                   is one continouns line of code
+
+// ------------- No Method Chaining -------
+
+/* let username = window.prompt("Enter your username: ");
+username = username.trim();
+let letter = username.charAt(0);
+letter = letter.toUpperCase();
+
+let extraChars = username.slice(1);
+extraChars = extraChars.toLowerCase();
+username = letter + extraChars;
+
+console.log(username); */
+
+// ------------- METHOD CHANINING ----------
+/* let username = window.prompt("Enter your username: ");
+ username = username.trim().charAt(0).toLocaleUpperCase() + username.trim().slice(1).toLocaleLowerCase();
+
+console.log(username);  */
+
+// 13. logical operators = used to combine or manipulate boolean values
+//                         (true or false)
+
+//                          AND = &&
+//                          OR = ||
+//                          NOT = !
+
+/* const temp = 20;
+
+if(temp >= 0 && temp <= 30){
+    console.log("The weather is GOOD ");
+}
+else{
+    console.log("The weather is BAD")
+} */
+
+// 14. Strict equality
+// = assignment operator
+// == comparison operator (compare if values are equal)
+// === strict equality operator (compare if values & datatype are equal)
+// != inequality operator
+// !== strict inequality operator
+
+// 15. while lopp = repeat some code WHILE some condition is true
+
+/* let username = "";
+
+while(username ==="" || usernam === null){
+    console.log(`You didn't enter your name`);
+}
+
+console.log(`Hello ${username}`);
+
+ */
+
+/* let loggefIn = false;
+let username;
+let password;
+
+while(!loggefIn){
+    
+} */
+
+// 16. for loop  = repeat somde code a LIMITED amount of times
+
+/* for(let i = 10; i > 0 ; i-=3){
+    console.log(i);
+}
+
+console.log("HAPPY NEW YEARS");
+ */
+
+// 17. Number Guessing GAME
+/* const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1));
+
+let attemps = 0;
+let guess;
+let running = true;
+
+while(running == true){
+    
+    guess = window.prompt(`Guess a number between ${minNum} - ${maxNum}`);
+    guess = Number(guess);
+if(isNaN(guess)){
+    window.alert("Please enter a valid number");
+}else if(guess < minNum || guess > maxNum){
+    window.alert("Please enter a valid number")
+} else{
+    attemps++;
+    if(guess < answer){
+        window.alert("TOO LOW! TRY AGAIN!");
+    }else if(guess > answer){
+        window.alert("TOO HIGH! TRY AGAIN~");
+    }else{
+        window.alert(`CORRECT! The answer was ${answer}. It took you ${attemps} attemps`)
+        running = false;
+    }
+}
+} */
+
+// 18. function = A section of reusable code.
+//      Declare code once, use it whenever you want.
+//      Call the function to execute that code.
+
+/* function happyBirthday(username, age){
+    console.log("Happy Birthday to you!");
+    console.log("Happy Birthday to you!");
+    console.log(`Happy Birthday to dear ${username} !`);
+    console.log(`You are ${age} years old`);
+}
+
+happyBirthday("Patrick", 21);
+happyBirthday("Spongebob", 30);
+happyBirthday("BroCode", 25); */
+
+/* function add(x,y){
+    return x + y;
+}
+function subtract(x,y){
+    return x - y;
+}
+function multiply(x,y){
+    return x * y;
+}
+function divide(x,y){
+    return x / y;
+}
+function isEven(number){
+    
+    return number % 2 === 0 ? true : false;
+}
+function isValidEmail(email){
+    return email.includes("@") ? true : false;
+}
+console.log(isValidEmail("Phat@fake.com"));
+console.log(isValidEmail("Phatfake.com"));
+console.log(isValidEmail("Phat@fake.com"));
+console.log(isEven(14)); */
