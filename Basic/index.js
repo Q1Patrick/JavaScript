@@ -520,3 +520,196 @@ console.log(isValidEmail("Phat@fake.com"));
 console.log(isValidEmail("Phatfake.com"));
 console.log(isValidEmail("Phat@fake.com"));
 console.log(isEven(14)); */
+
+// 19. Variable scope = where a variable is revognized
+//                        and accessible (local vs global)
+
+/* let x = 1; 
+let x = 2 */
+
+// 20. TEMPERATURE CONVERSION PROGRAM
+
+/* const textbox = document.getElementById("textBox");
+const toFahrenheit = document.getElementById("toFahrenheit");
+const toCelsius = document.getElementById("toCelsius");
+const result = document.getElementById("result");
+let temp;
+
+
+function convert(){
+    if(toFahrenheit.checked){
+        temp = Number(textbox.value);
+        temp = temp * 9 / 5 + 32;
+        result.textContent = temp.toFixed(1) + "degF"
+    }
+    else if(toCelsius.checked){
+        temp = Number(textbox.value);
+        temp = (temp - 32 ) * (5/9);
+        result.textContent = temp.toFixed(1) + "degF"
+    }
+    else{
+        result.textContent = "Select a unit";
+    }
+} */
+
+// 21. forEach = method used to iterate over the elements 
+//           of an array and apply a specified function (Callback)
+//           to each element
+
+//            array.forEach(callback)
+//            element, index, array are provided 
+
+/* let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(cube);
+numbers.forEach(display);
+
+function double(element, index, array){
+    array[index] = element * 2;
+}
+
+function triple(element, index, array){
+    array[index] = element * 3;
+
+}
+
+function square(element, index, array){
+array[index] = Math.pow(element,2);
+}
+
+function cube(element, index, array){
+    array[index] = Math.pow(element, 3);
+}
+
+
+function display(element){
+    console.log(element);
+} */
+/* 
+let fruits = ["apple","orange","banana","coconut"];
+fruits.forEach(capitalize);
+fruits.forEach(display);
+
+function upperCase(element,index,array){
+    array[index] = element.toUpperCase();
+}
+
+function lowercase(element,index,array){
+    array[index] = element.toLowerCase();
+}
+
+function capitalize(element,index,array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+function display(element){
+    console.log(element);
+} */
+
+// 22. map() = accepts a callback and applies that function
+//             to each elemnt of an array, then return a new array.
+
+/* const numbers = [1,2,3,4,5];
+const squares = numbers.map(square);
+const cubes = numbers.map(cube);
+console.log(cubes);
+
+function square(element){
+    return Math.pow(element, 2);
+}
+
+function cube(element){
+    return Math.pow(element, 3);
+} */
+/* 
+const students = ["Spongebob", "Patrick", "Squidward","Sandy"];
+
+const studentsUpper = students.map(upperCase);
+const studentsLower = students.map(lowerCase);
+
+console.log(studentsLower);
+function upperCase(element){
+    return element.toUpperCase();
+}
+
+function lowerCase(element){
+    return element.toLowerCase();
+} */
+
+/* const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
+
+console.log(formattedDates);
+
+function formatDates(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+} */
+
+// 23. filter() : creates a new array by filtering
+//                out elements
+
+/* let numbers = [1,2,3,4,5,6,7];
+let evenNums = numbers.filter(isEven);
+let oddnNums = numbers.filter(isOdd);
+
+console.log(oddnNums);
+
+function isEven(element){
+    return element % 2 === 0;
+}
+
+function isOdd(element){
+    return element % 2 !== 0;
+} */
+
+/* const ages = [16,17,18,18,19,20,60];
+const adults = ages.filter(isAult);
+const children = ages.filter(isChild);
+
+console.log(children);
+
+function isAult(element){
+    return element >= 18;
+}
+
+function isChild(element){
+    return element < 18;
+} */
+
+/* const words = ["apple","banana","orange","kiwi","pomegranate","coconut"];
+
+const shortWords = words.filter(getShortWords);
+const longWords = words.filter(getLongWords);
+
+console.log(longWords);
+
+function getShortWords(element){
+    return element.length <= 6;
+}
+
+function getLongWords(element){
+    return element.length > 6;
+} */
+
+// 24. reduce() = reduce the elements of an array
+//                to a single value
+
+/* 
+Ví dụ:
+tính tổng
+tính trung bình
+đếm số lượng
+gom object
+shopping cart total
+
+
+const prices = [5, 30, 10 ,25 , 15, 20];
+
+const total = prices.reduce(sum);
+
+console.log(`$${total.toFixed(2)}`);
+
+function sum(accumulator, element){
+    return accumulator + element;
+} */
