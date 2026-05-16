@@ -713,3 +713,170 @@ console.log(`$${total.toFixed(2)}`);
 function sum(accumulator, element){
     return accumulator + element;
 } */
+
+// sort() = methodf used to sort elements of an array in place.
+//          Sorts elements as strings in lexicographic order, not alphabetical
+//          lexicographic = (alphabet + numbers + sympols ) as strings
+
+/* let numbers = [1,10,2,9,3,8,4,7,5,6];
+
+numbers.sort((a,b) => b - a);
+
+console.log(numbers); */
+
+/* const people =[{name: "Spongebob", age: 30, gpa: 3.0},
+                {name: "Patrick", age: 37, gpa: 5.5},
+                {name: "Squidward", age: 51, gpa: 2.5},
+                {name: "Sandy", age: 27, gpa: 4.0}
+
+];
+
+people.sort((a,b) => a.name.localeCompare(b.name));
+
+console.log(people); */
+/* const cards = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K'];
+
+shuffle(cards);
+console.log(cards);
+
+function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const random = Math.floor(Math.random() * (i + 1));
+
+        array[i], array[random] = [array[random], array[i]];
+    }    
+}
+ */
+
+//  25. Object Creation = Saved a mount of information in 1 variables
+/* 
+const students = {
+    name: "Nhi",
+    age: 20,
+    major: "Information Technology"
+};
+
+document.getElementById("result").textContent = `${students.name} is ${students.age} years old and studies ${students.major}`; */
+
+// 26. Destructuring = take a data object fastly 
+
+/* const person = {
+    name: "Patrick",
+    age: 37,
+    city: "Bikini Bottom"
+}
+
+const {name,age,city} = person;
+
+document.getElementById("infor").textContent =
+`${name} is ${age} years old and lives in ${city}`;
+ */
+// 27. Spread Operator = Copy and Update object
+/* 
+const user ={ 
+    name: "Sandy",
+    age: 27
+};
+
+const updateUser = { 
+    ...user,
+    contry: "USA",
+    age: 28
+};
+
+document.getElementById("output").textContent = `${updateUser.name} is ${updateUser.age} from ${updateUser.contry}`; */
+
+// 28. JSON.stringify() = Convert object to JSON string
+
+/* const product = { 
+    name: "Laptop",
+    price: 1000
+};
+
+const jsonString = JSON.stringify(product);
+
+document.getElementById("jsonResult").textContent = jsonString; */
+
+// 29. JSON.parse() = Convert JSON to Object
+
+/* Server
+↓
+JSON string
+↓
+Frontend nhận
+↓
+JSON.parse()
+↓
+Object JS
+↓
+Hiển thị HTML */
+
+/* const jsonData = '{"name":"Squidward","age":51}';
+
+const person = JSON.parse(jsonData);
+
+document.getElementById("parseResult").textContent = `${person.name} is ${person.age}`; */
+
+// 30. Examble Combination
+
+/* document.getElementById("btn").onclick = function(){
+    const student = {
+        name: "Nhi",
+        age: 20,
+        major: "Information Technology"
+    }
+
+    //destructuring
+    const {name,age} = student;
+
+    const updateStudent = { 
+        ...student,
+        country: "VietNam"
+    };
+
+    //object -> JSON
+    const json = JSON.stringify(updateStudent);;
+
+    //JSON -> object
+    const parsed = JSON.parse(json);
+
+    document.getElementById("result").textContent = `
+Name: ${name}
+Age: ${age}
+
+JSON:
+${json}
+
+Parsed Object:
+${parsed.name} from ${parsed.country}
+`; 
+}
+*/
+
+const students = { 
+    name: "Patrick",
+    major:"Information Technology",
+}
+
+const studentGpa = [8,9,10];
+const {name,major} = students;
+
+
+
+document.getElementById("calculatorBtn").onclick = function(){
+    let total = studentGpa.reduce((sum,grade) => {return sum + grade},0); 
+    let average = total / studentGpa.length;
+    if(average >= 8 && average <=10){
+        console.log("Excellent Student");
+    }else if(average >= 5 && average < 8){
+        console.log("Intermediate Student");
+    }else if(average > 0 && average < 5) {
+        console.log("Poor Student");
+    }else{
+        console.log("Please Enter the grade subject!!");
+    }
+    document.getElementById("result").textContent = `${students.name} has GPA ${average.toFixed(2)}`;
+}
+
+
+
