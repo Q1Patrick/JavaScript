@@ -852,7 +852,7 @@ ${parsed.name} from ${parsed.country}
 `; 
 }
 */
-
+/* 
 const students = { 
     name: "Patrick",
     major:"Information Technology",
@@ -875,8 +875,423 @@ document.getElementById("calculatorBtn").onclick = function(){
     }else{
         console.log("Please Enter the grade subject!!");
     }
-    document.getElementById("result").textContent = `${students.name} has GPA ${average.toFixed(2)}`;
+    document.getElementById("result").textContent = `${students.name} has GPA ${average.toFixed(2)}`; 
+}*/
+
+// spread operator = .....allows an iterable such as an 
+//                  array or string to be expanded 
+//                  into seperate elements 
+//                  (unpacks the elements)
+
+/* let numbers = [1,2,3,4,5];
+let maximum = Math.max(...numbers);
+let minimum = Math.min(...numbers);
+
+console.log(minimum); */
+
+/* let username = "Bro Code";
+let letters = [...username].join("");
+
+console.log(letters);
+ */
+
+/* let fruits = ["apple","orange","banana"];
+let vegetables = ["carrots", "celery", "potatoes"];
+
+let foods = [...fruits,...vegetables, "eggs", "milk"];
+
+console.log(foods); */
+
+// rest parameters = (...rest) allow a function work with a variable
+//                    number of arguments by building them into an array
+
+//                    spread = expands an array into seperate elements
+//                    rest = bundles seperate elements into array
+
+/* function openFridge(...foods){
+    console.log(...foods);
+}
+function getFood(...foods){
+    return foods;
+}
+const food1 = "pizza";
+const food2 = "hambugar";
+const food3 = "hotdog";
+const food4 = "sushi";
+const food5 = "ramen";
+
+//openFridge(food1,food2,food3,food4,food5);
+const foods = getFood(food1,food2,food3,food4,food5);
+console.log(foods); */
+
+/* function sum(...numbers){
+
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result;
 }
 
 
+function getAverage(...numbers){
 
+    let result = 0;
+    for(let number of numbers){
+        result += number;
+    }
+    return result / numbers.length;
+}
+const total = getAverage(75,100,85,90,50);
+
+console.log(`Your total is ${total}`); */
+
+/* function combineString(...strings){
+    return strings.join(" ");
+}
+
+const fullName = combineString("Mr.", "Spongebob","Squarepants","III");
+
+console.log(fullName) */
+
+// DICE ROLLER PROGRAM 
+
+/* function rollDice(){
+    const numOfDice = document.getElementById("numOfDice").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceImages = document.getElementById("diceImages");
+    const values = [];
+    const images = [];
+
+    for(let i = 0; i < numOfDice; i++){
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value);
+        images.push(`<img src="dice_images/${value}.png" alt="Dice ${value}">`);
+        
+    }
+    diceResult.textContent = `dice: ${values.join(', ')}`;
+    diceImages.innerHTML  = images.join('');
+    
+} */
+
+// 31. RANDOM PASSWORD GENERATOR
+
+/* function generatePassword(length,includeLowercase,includeUppercase,includeNumbers,includeSymbols){
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberChars = "0123456789";
+    const sympolChars = "!@#$%^&*_+()=";
+
+    let allowedChars ="";
+    let password = "";
+
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? sympolChars : "";
+
+    if(length <=0){
+        return `(password length must be at least 1)`;
+    }
+    if(allowedChars.length === 0){
+        return `(At least 1 set of character needs to be selected)`;
+    }
+    for(let i = 0; i < length; i++){
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
+    }
+
+    return password;
+}
+
+const passwordLength = 12;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = false;
+
+const password = generatePassword(passwordLength,
+                                includeLowercase,
+                                includeUppercase,
+                                includeNumbers,
+                                includeSymbols);
+console.log(`Generated password: ${password}`); */
+
+// 32. callback = a function that is passed as an argument
+//                to another function
+
+//                 used to handle asynchronous operations
+//                 1. Reading a file
+//                 2. Network requests
+//                 3. Interacting with databases
+
+//                 "Hey, when you're done, call this next"
+
+/* sum(displayPage,1,2)
+
+function sum(callback,x,y){
+    let result = x + y;
+    callback(result);
+}
+
+function displayConsole(result){
+    console.log(result);
+}
+
+function displayPage(result){
+    document.getElementById("myH1").textContent = result;
+} */
+
+//  33.fuction declaration = define a reusable block of code
+//                           the performs a specific task 
+//      1. Callbacks in asynchronous operations
+//      2. Higher-Order Functions
+//      3. Closures
+//      4. Event Listeners
+
+
+/* function hello(){
+    console.log("Hello");
+}
+ */
+
+
+
+
+// 33. function expressions = a way to define functions 
+//                            as values or variables
+/* setTimeout(function() {
+    console.log("Hello");
+}, 3000); */
+
+/* const numbers = [1,2,3,4,5,6];
+const squares = numbers.map(function(element){
+    return Math.pow(element,2);
+});
+
+const cubes = numbers.map(function(element){
+    return Math.pow(element,3);
+})
+
+const evenNums = numbers.filter(function(element){
+    return element % 2 === 0;
+})
+
+const oddNums = numbers.filter(function(element){
+    return element % 2 !== 0;
+})
+
+function cube(element){
+    return Math.pow(element,3);
+    
+}
+    const total = numbers.reduce(function(accumulator,element){
+    return accumulator + element;
+})
+
+console.log(oddNums); */
+
+// 34.arrow fuctions = a concise way to wite function expressions 
+//                   good for simple functions that you uses only once
+//                  (parameters) => some code
+
+/* const hello = (name) =>  console.log(`Hello ${name}`);
+
+hello("Bro"); */
+/* 
+const numbers = [1,2,3,4,5,6];
+
+const squares = numbers.map((element) => Math.pow(element,2));
+const cubes = numbers.map((element) => Math.pow(element,3));
+const evenNums = numbers.filter((element)=> element % 2 === 0);
+const oddnNums = numbers.filter((element)=> element % 2 !== 0);
+const total = numbers.reduce((accumlator,element) => accumlator + element);
+
+console.log(total); */
+
+// 35. Object = a collection of related properties and/or methods 
+//               Can re present real world objects (people,products ,places)
+//              object = {key: value
+//                        function(),}
+
+/* const person1 = {
+    firstName: "Spongebob",
+    lastName:"Squarepants",
+    age: 30,
+    isEmployed:true,
+    sayHello: function(){console.log("Hi! I am Spongebob")},
+    eat: function(){console.log("I am eating a Krabby Patty")},
+}
+const person2 = { 
+    firstName: "Patrick",
+    lastName:"Star",
+    age: 20,
+    isEmployed:false,
+    sayHello: () => {console.log("hey! I am Patrick...")},
+    eat: function(){console.log("I am eating roast beef, chicken, and pizza")},
+
+}
+
+person1.eat();
+person2.eat(); */
+
+//  36. this = reference to the object where THIS is used
+//       (the object depends on the immediate context)
+//       person.name = this.name
+
+/* const person1 = {
+    name: "Spongebob",
+    favFood: "hamburgers",
+    sayHello: function(){console.log(`Hi! I am ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+const person2 = {
+    name: "Patrick",
+    favFood: "Pizza",
+    sayHello: function(){console.log(`Hi! I am ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+person1.eat();
+person2.eat(); */
+
+// constructor = special method for defining the
+//               properties and methods of objects
+
+/* function Car(make,model,year,color){
+    this.make = make,
+    this.model = model,
+    this.year = year, 
+    this.color = color
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+
+const car1 = new Car("Ford","Mustang",2026,"red");
+const car2 = new Car("Chevrolet","Camaro",2025,"blue");
+const car3 = new Car("Dodge","Charger",2026,"silver");
+
+
+car1.drive();
+car2.drive();
+car3.drive();
+ */
+//  37. querySelector
+/* const title = document.querySelector(".title");
+const description = document.querySelector(".description");
+const button = document.querySelector("#changeBtn");
+const input = document.querySelector("#nameBox");
+
+// input event 
+input.addEventListener("input",
+    (event) => {
+        title.textContent = `Hello ${event.target.value}`;
+    }
+);
+
+// click event 
+button.addEventListener("click", () => {
+    
+    // toggle dark mode
+    document.body.classList.toggle("dark");
+
+    //toggle title style 
+    title.classList.toggle("active");
+
+    //change description 
+    description.textContent = "Theme changed successfully!"
+
+}); */
+
+// 38. querySelectorAll
+
+/* const tasks = document.querySelectorAll(".task");
+const button = document.querySelectorAll("#toggleBtn");
+
+button.addEventListener("click", () => {
+
+    tasks.forEach((task) => {
+        task.classList.toggle("done");
+    });
+
+}); */
+
+// 39. innerHTML
+
+/* const box = document.querySelector("#box");
+const button = document.querySelector("#btn");
+
+button.addEventListener("click", () => {
+    box.innerHTML = `<h1> Hello JavaScripts </h1>
+                     <p>This content was added dynamically </p>   
+    `;
+}); */
+
+/* // 40.classList.add()
+
+const box = document.querySelector("#box");
+const button = document.querySelector("#btn");
+
+button.addEventListener("click", () => {
+    box.classList.add("active");
+}); */
+
+// 41. keydown
+/* const event = document.querySelector("event");
+
+document.addEventListener("keydown" ,(event) =>{
+    console.log(event,key);
+});
+ */
+
+// 42. event.preventDefault()
+/* const form = document.querySelector("#loginForm");
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    console.log("Login successful");
+}); */
+
+const button =
+document.querySelector("#themeBtn");
+
+
+// =========================
+// LOAD SAVED THEME
+// =========================
+
+const savedTheme =
+localStorage.getItem("theme");
+
+
+// if dark mode was saved
+if(savedTheme === "dark"){
+
+    document.body.classList.add("dark");
+}
+
+
+// =========================
+// BUTTON CLICK EVENT
+// =========================
+
+button.addEventListener("click", () => {
+
+    // toggle dark class
+    document.body.classList.toggle("dark");
+
+
+    // =========================
+    // SAVE THEME
+    // =========================
+
+    if(document.body.classList.contains("dark")){
+
+        localStorage.setItem("theme", "dark");
+
+    }else{
+
+        localStorage.setItem("theme", "light");
+    }
+});
